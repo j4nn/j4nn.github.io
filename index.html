@@ -4,7 +4,40 @@
 <title>j4nn sw development</title>
 </head>
 <body>
-Linux software development.<br/>
-(initial web page, work in progress)
+<h1>Linux software development</h1>
+<h3>Tools to backup Trim Area of xperia XZ1 compact</h3>
+<a href="https://forum.xda-developers.com/xperia-xz1-compact/development/devonly-exploits-temp-root-to-backup-t3795510">thread on xda with the tools development</a>
+<br/>
+<br/>
+Please note: I had to invest enormously lot of time to develop these tools,
+the code is extremely complex (more than 9000 lines of source code)
+and it was unbelievable hard to debug and get the timing usable.<br/>
+It would be kind of you if you could consider donating here please:<br/>
+<br/>
+<a href="https://j4nn.github.io/donate/">Donate to Me</a><br/>
+<br/>
+I would be happy to accept any donation to me as a form of gratitude
+in case the software helped you to backup your TA (drm keys) before
+bootloader unlocking.<br/>
+Thanks.<br/>
+<br/>
+<h3>About the tools</h3>
+<ul>
+<li><b>renosploit</b> - rename/notify exploit to get kernelspace read/write, uses multiple vulnerabilities to overcome kaslr, pxn and pan mitigations of android oreo</li>
+<li><b>renotrap</b> - helper application (rename/notify temp root app)</li>
+<li><b>renoshell</b> - get temp root shell by use of kernel space read/write primitives provided by renosploit</li>
+<li><b>renoroot</b> - a shell script to be started from adb, it starts the above tools to get temp root shell</li>
+</ul>
+<h3>Acknowledgements to following xda users:</h3>
+<ul>
+<li><b>moofesr</b> - for testing initial kernel builds until proper build procedure had been found, special thanks for his patience when all tests resulted with bootloop</li>
+<li><b>Raz0Rfail</b> and <b>moofesr</b> - for testing timing of rename/notify vulnerability with patched kernel</li>
+<li><b>dosomder</b> - for his iovyroot</li>
+<li><b>tramtrist</b> - for initial testing of TA backup, unlock and restore, special thanks for exposing to risk of loosing drm if it did not work</li>
+<li><b>ThomasKing</b> (not a user on xda) - for his black hat ksma presentation</li>
+<li><b>few other users in the thread on xda</b> - for some other cve possibilities and ideas</li>
+</ul>
+<br/>
+<br/>
 </body>
 </html>
