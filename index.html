@@ -2,10 +2,57 @@
 <html>
 <head>
 <title>j4nn sw development</title>
+<meta name="keywords" content="android pie exploit, TrustZone exploit, verified boot bypass, locked bootloader, qsee exploit">
 </head>
 <body>
 <h1>Linux software development</h1>
-<h3>Tools to backup Trim Area of xperia XZ1 compact</h3>
+<h2>Permanently rooting Android PIE without bootloader unlock - SONY XPERIA XZ1 Compact Verified Boot Bypass</h2>
+<a href="https://forum.xda-developers.com/general/security/android-pie-verifiedboot-bypass-sony-t4005711">Work in progress at xda</a> - preview recordings of features implemented for xz1c:
+<ol>
+<li><a href="https://youtu.be/TAhSNjxZfhc">LOS16 with locked BL</a><br/>
+short preview of Lineage OS 16.0 booting instead of stock fw with still locked bootloader including magisk root<br/>
+<a href="https://forum.xda-developers.com/showpost.php?p=80646863&postcount=1354">announcing post on xda</a>
+</li>
+<li><a href="https://youtu.be/0IMee3Ycr18">verified boot bypass</a>:<br/>
+- fastboot-ing twrp<br/>
+- permanently flashing twrp as recovery<br/>
+- permanently rooting stock fw with magisk without unlocking bootloader</li>
+<li><a href="https://youtu.be/lbPqi7mszjk">LOS16 from sd card</a><br/>
+installing LOS16 as an alternate OS to sdcard for multiboot via recovery</li>
+<li><a href="https://youtu.be/XhyurBOwefY">LOS16 instead of stock fw with locked BL</a><br/>
+dual booting two LOS16 installations, one replacing stock fw, the other from sd card<br/>
+replacing the 2nd LOS16 with twrp recovery being happy with just one LOS16 replacing stock fw with still locked bootloader</li>
+</ol>
+Playlist of all the above available <a href="https://www.youtube.com/playlist?list=PLIdPBn2_BMhl7_mUSiYqnIVm7FSdkXH2x">here</a>.<br/>
+<br/>
+<h4>Vulnerability impact</h4>
+This could be used to inject any software into a xperia phone, like remote root backdoor or some eavesdropping spyware.<br/>
+An exploit may be implemented in a way that it could survive full firmware re-flash from computer or even system fota upgrade, including factory reset, making it very powerful.<br/>
+If used with another temp (or remote) root exploit, this vulnerability may be leveraged without user noticing anything, so an attacker may do persistent changes even when bootloader is still locked with verified boot active.<br/>
+
+<h4>Vulnerability scope</h4>
+The proof of concept exploit is working with sony xperia xz1 compact phone.<br/>
+It can be extended to support entire range of xperia phones running YOSHINO platform (qualcomm snapdragon 835) - XZ Premium, XZ1, XZ1 Compact (any of single/dual sim variants), including those that do not allow bootloader unlock as that is not needed.<br/>
+First stage of the exploit has also been adapted for SONY XPERIA XZ2, as documented <a href="https://forum.xda-developers.com/showpost.php?p=80414661&postcount=1176">here</a> and in following posts. That means the exploit could be extended to support entire TAMA platform, i.e. sony xperia XZ2/XZ3 (Compact/Dual/Premium) phones.<br/>
+There is a chance that the exploit could be adapted to any recent xperia phone released since yoshino platform. It has not been checked/proved either way though.<br/>
+
+<h4>What to do next</h4>
+I am not sure if the exploit should be publicly released to allow rooting without bootloader unlock or if this should go the responsible disclosure way, considering the misuse risks.
+<br/>
+<br/>
+Even though this exploit is very powerful, my ultimate goal is TrustZone code execution hopefully allowing to inject custom verified boot keys and bootloader re-lock.<br/>
+<U>Unfortunately I can spend less and less time working on this stuff, so I would appreciate help from other developers, particularly experienced with reverse engineering to help me find a hole to get into TrustZone / Qualcomm Secure Execution Environment (QSEE).</U><br/>
+I have already some ideas for very promising TZ attack vectors.<br/>
+<b><u>Please contact me if you would like to help me with TrustZone exploit development.<br/>
+Thank you.</u></b>
+<br/>
+<br/>
+<a href="https://github.com/j4nn/">https://github.com/j4nn/</a><br/>
+<a href="https://forum.xda-developers.com/member.php?u=4418980">xda-developers profile</a>
+
+<br/>
+<br/>
+<h2>Tools to backup Trim Area of xperia XZ1 compact</h2>
 <a href="https://forum.xda-developers.com/xperia-xz1-compact/development/devonly-exploits-temp-root-to-backup-t3795510">thread on xda with the tools development</a>
 <br/>
 <br/>
@@ -21,14 +68,14 @@ in case the software helped you to backup your TA (drm keys) before
 bootloader unlocking.<br/>
 Thanks.<br/>
 <br/>
-<h3>About the tools</h3>
+<h4>About the tools</h4>
 <ul>
 <li><b>renosploit</b> - rename/notify exploit to get kernelspace read/write, uses multiple vulnerabilities to overcome kaslr, pxn and pan mitigations of android oreo</li>
 <li><b>renotrap</b> - helper application (rename/notify temp root app)</li>
 <li><b>renoshell</b> - get temp root shell by use of kernel space read/write primitives provided by renosploit</li>
 <li><b>renoroot</b> - a shell script to be started from adb, it starts the above tools to get temp root shell</li>
 </ul>
-<h3>Acknowledgements to following xda users:</h3>
+<h4>Acknowledgements to following xda users:</h4>
 <ul>
 <li><b>moofesr</b> - for testing initial kernel builds until proper build procedure had been found, special thanks for his patience when all tests resulted with bootloop</li>
 <li><b>Raz0Rfail</b> and <b>moofesr</b> - for testing timing of rename/notify vulnerability with patched kernel</li>
