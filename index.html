@@ -2,11 +2,27 @@
 <html>
 <head>
 <title>j4nn sw development</title>
-<meta name="keywords" content="android pie exploit, TrustZone exploit, verified boot bypass, locked bootloader, qsee exploit">
+<meta name="keywords" content="android pie exploit, TrustZone exploit, verified boot bypass, locked bootloader, qsee exploit, bootloader exploit, ABL exploit">
 </head>
 <body>
 <h1>Linux software development</h1>
-<h2>Permanently rooting Android PIE without bootloader unlock - SONY XPERIA XZ1 Compact Verified Boot Bypass</h2>
+
+<h2>Temp Root Exploit via CVE-2020-0041 Including Temporal Magisk Setup</h2>
+<ul>
+<li>Sony Xperia XZ2/XZ2c/XZ2p/XZ3: <a href="https://xdaforums.com/t/xz2-xz2c-xz2p-xz3-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4099131/">xda thread</a>, <a href="https://github.com/j4nn/CVE-2020-0041/tree/tama-mroot">https://github.com/j4nn/CVE-2020-0041/tree/tama-mroot</a></li>
+<li>Sony Xperia 1, Xperia 5: <a href="https://xdaforums.com/t/xperia-1-5-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4146103/">xda thread</a>, <a href="https://github.com/j4nn/CVE-2020-0041/tree/x1x5-mroot">https://github.com/j4nn/CVE-2020-0041/tree/x1x5-mroot</a></li>
+<li>LG V50/G8: <a href="https://xdaforums.com/t/lg-v50-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4098077/">LG V50 xda thread</a>, <a href="https://xdaforums.com/t/lg-g8-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4100333/">LG G8 xda thread</a>, <a href="https://github.com/j4nn/CVE-2020-0041/tree/v50g8-mroot">https://github.com/j4nn/CVE-2020-0041/tree/v50g8-mroot</a></li>
+</ul>
+
+<h2>Temp Root Exploit via CVE-2019-2215 for Xperia XZ1c/XZ1/XZp</h2>
+Thread on xda with the exploit and scripts to setup temporal magisk:<br/>
+<a href="https://xdaforums.com/t/xz1c-xz1-xzp-temp-root-exploit-via-cve-2019-2215-including-magisk-setup-locked-bl.4046641/">[XZ1c/XZ1/XZp] temp root exploit via CVE-2019-2215 including magisk setup [Locked BL]</a><br/>
+<br/>
+Source code for the exploit (bindershell) is available here:<br/>
+<a href="https://github.com/j4nn/renoshell/tree/CVE-2019-2215">https://github.com/j4nn/renoshell/tree/CVE-2019-2215</a><br/>
+<br/>
+
+<h2>Permanently rooting Android PIE without bootloader unlock - Xperia XZ1c</h2>
 <a href="https://forum.xda-developers.com/general/security/android-pie-verifiedboot-bypass-sony-t4005711">Work in progress at xda</a> - preview recordings of features implemented for xz1c:
 <ol>
 <li><a href="https://youtu.be/TAhSNjxZfhc">LOS16 with locked BL</a><br/>
@@ -25,6 +41,7 @@ replacing the 2nd LOS16 with twrp recovery being happy with just one LOS16 repla
 </ol>
 Playlist of all the above available <a href="https://www.youtube.com/playlist?list=PLIdPBn2_BMhl7_mUSiYqnIVm7FSdkXH2x">here</a>.<br/>
 <br/>
+<details><summary><a>more details about the vulnerability</a></summary>
 <h4>Vulnerability impact</h4>
 This could be used to inject any software into a xperia phone, like remote root backdoor or some eavesdropping spyware.<br/>
 An exploit may be implemented in a way that it could survive full firmware re-flash from computer or even system fota upgrade, including factory reset, making it very powerful.<br/>
@@ -50,24 +67,13 @@ Thank you.</u></b>
 <a href="https://github.com/j4nn/">https://github.com/j4nn/</a><br/>
 <a href="https://forum.xda-developers.com/member.php?u=4418980">xda-developers profile</a>
 
+</details>
 <br/>
-<br/>
-<h2>Tools to backup Trim Area of xperia XZ1 compact</h2>
+<h2>Tools to Backup Trim Area of Xperia XZ1c/XZ1/XZp</h2>
 <a href="https://forum.xda-developers.com/xperia-xz1-compact/development/devonly-exploits-temp-root-to-backup-t3795510">thread on xda with the tools development</a>
 <br/>
-<br/>
-Please note: I had to invest enormously lot of time to develop these tools,
-the code is extremely complex (more than 9000 lines of source code)
-and it was unbelievable hard to debug and get the timing usable.<br/>
-It would be kind of you if you could consider donating here please:<br/>
-<br/>
-<a href="https://j4nn.github.io/donate/">Donate to Me</a><br/>
-<br/>
-I would be happy to accept any donation to me as a form of gratitude
-in case the software helped you to backup your TA (drm keys) before
-bootloader unlocking.<br/>
-Thanks.<br/>
-<br/>
+The tools include my implementation of temp root exploit leveraging CVE-2017-7533.<br/>
+<br/><details><summary><a>more details about the tools</a></summary>
 <h4>About the tools</h4>
 <ul>
 <li><b>renosploit</b> - rename/notify exploit to get kernelspace read/write, uses multiple vulnerabilities to overcome kaslr, pxn and pan mitigations of android oreo</li>
@@ -84,6 +90,14 @@ Thanks.<br/>
 <li><b>ThomasKing</b> (not a user on xda) - for his black hat ksma presentation</li>
 <li><b>few other users in the thread on xda</b> - for some other cve possibilities and ideas</li>
 </ul>
+</details>
+
+<h2>Donations</h2>
+If you like my work, maybe consider supporting me with a donation here:<br/>
+<br/>
+<a href="https://j4nn.github.io/donate/">https://j4nn.github.io/donate/</a><br/>
+<br/>
+Thank you.<br/>
 <br/>
 <br/>
 </body>
