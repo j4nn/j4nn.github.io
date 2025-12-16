@@ -5,16 +5,43 @@
 <meta name="keywords" content="android pie exploit, TrustZone exploit, verified boot bypass, locked bootloader, qsee exploit, bootloader exploit, ABL exploit">
 </head>
 <body>
-<h1>Linux software development</h1>
+<h1>Linux Software Development Projects by j4nn</h1>
+
+<h2>Xperia ABL fastboot Exploit via CVE-2021-1931</h2>
+The <code>xperable</code> fastboot exploit supporting Yoshino (Snapdragon 835) and Tama (Snapdragon SDM845) platforms allows bootloader unlock and <b>re-lock</b> freely even with phones with rooting not allowed.<br/>
+Supported phones are Sony Xperia XZ1c/XZ1/XZp and XZ2/XZ2c/XZ2p/XZ3 with many region specific variants.<br/>
+<br/>
+With yoshino it is possible to "<code>fastboot boot twrp.img</code>" with locked bootloader and working userdata decryption. Many other features supported.<br/>
+<br/>
+<a href="https://github.com/j4nn/xperable">https://github.com/j4nn/xperable</a><br/>
+xperable xda <a href="https://xdaforums.com/t/xz1c-xz1-xzp-xperable-xperia-abl-fastboot-exploit-cve-2021-1931.4771931/">thread for yoshino</a>, xperable xda <a href="https://xdaforums.com/t/xz2-xz2c-xz2p-xz3-xperable-xperia-abl-fastboot-exploit-cve-2021-1931.4771932/">thread for tama</a><br/>
+video demonstrating xperable exploit use <a href="https://youtu.be/8H2p7CZKcfo">with XZ1c</a> and <a href="https://youtu.be/5KLfDHFyn18">with XZ2</a><br/>
+
+<h2>TWRP for Sony Xperia XZ2/XZ2c/XZ2p/XZ3</h2>
+twrp-3.7.1_12 for Sony Tama (SDM845) platform devices, supporting userdata decryption of recent android versions.<br/>
+<br/>
+<a href="https://xdaforums.com/t/recovery-twrp-3-7-1_12-xz2-xz2c-xz2p-xz3.4772176/">xda thread</a><br/>
+<a href="https://github.com/j4nn/android_device_sony_tama">https://github.com/j4nn/android_device_sony_tama</a><br/>
+<a href="https://sourceforge.net/projects/tama-testbuilds/">https://sourceforge.net/projects/tama-testbuilds/</a><br/>
+
+<h2>TWRP for Sony Xperia XZ1c/XZ1</h2>
+twrp-3.7.1_12 for lilac and poplar_dsds devices.<br/>
+This is a fork of <a href="https://github.com/whatawurst/">whatawurst</a>'s twrp, adding a fix for userdata decryption with recent android versions.<br/>
+Thank you and credits to <a href="https://github.com/derfelot">@derf elot</a> and <a href="https://github.com/cryptomilk">@modpunk</a> at xda.<br/>
+<br/>
+<a href="https://xdaforums.com/t/rom-lineageos-21-0-unofficial-1-1-2024-06-16.4658694/post-90209859">xda forums post</a><br/>
+<a href="https://github.com/whatawurst/android_device_sony_lilac/pull/64">https://github.com/whatawurst/android_device_sony_lilac/pull/64</a><br/>
+<a href="https://github.com/j4nn/android_device_sony_lilac/tree/android-12.1">https://github.com/j4nn/android_device_sony_lilac/tree/android-12.1</a><br/>
+<a href="https://sourceforge.net/projects/yoshino-testbuilds">https://sourceforge.net/projects/yoshino-testbuilds</a><br/>
 
 <h2>Temp Root Exploit via CVE-2020-0041 Including Temporal Magisk Setup</h2>
 <ul>
-<li>Sony Xperia XZ2/XZ2c/XZ2p/XZ3: <a href="https://xdaforums.com/t/xz2-xz2c-xz2p-xz3-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4099131/">xda thread</a>, <a href="https://github.com/j4nn/CVE-2020-0041/tree/tama-mroot">https://github.com/j4nn/CVE-2020-0041/tree/tama-mroot</a></li>
-<li>Sony Xperia 1, Xperia 5: <a href="https://xdaforums.com/t/xperia-1-5-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4146103/">xda thread</a>, <a href="https://github.com/j4nn/CVE-2020-0041/tree/x1x5-mroot">https://github.com/j4nn/CVE-2020-0041/tree/x1x5-mroot</a></li>
-<li>LG V50/G8: <a href="https://xdaforums.com/t/lg-v50-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4098077/">LG V50 xda thread</a>, <a href="https://xdaforums.com/t/lg-g8-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4100333/">LG G8 xda thread</a>, <a href="https://github.com/j4nn/CVE-2020-0041/tree/v50g8-mroot">https://github.com/j4nn/CVE-2020-0041/tree/v50g8-mroot</a></li>
+<li>Sony Xperia XZ2/XZ2c/XZ2p/XZ3: <a href="https://xdaforums.com/t/xz2-xz2c-xz2p-xz3-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4099131/">xda thread</a>, sources at <a href="https://github.com/j4nn/CVE-2020-0041/tree/tama-mroot">https://github.com/j4nn/CVE-2020-0041/tree/tama-mroot</a></li>
+<li>Sony Xperia 1, Xperia 5: <a href="https://xdaforums.com/t/xperia-1-5-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4146103/">xda thread</a>, sources at <a href="https://github.com/j4nn/CVE-2020-0041/tree/x1x5-mroot">https://github.com/j4nn/CVE-2020-0041/tree/x1x5-mroot</a></li>
+<li>LG V50/G8: <a href="https://xdaforums.com/t/lg-v50-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4098077/">LG V50 xda thread</a>, <a href="https://xdaforums.com/t/lg-g8-temp-root-exploit-via-cve-2020-0041-including-magisk-setup.4100333/">LG G8 xda thread</a>, sources at <a href="https://github.com/j4nn/CVE-2020-0041/tree/v50g8-mroot">https://github.com/j4nn/CVE-2020-0041/tree/v50g8-mroot</a></li>
 </ul>
 
-<h2>Temp Root Exploit via CVE-2019-2215 for Xperia XZ1c/XZ1/XZp</h2>
+<h2>Temp Root Exploit via CVE-2019-2215 for Sony Xperia XZ1c/XZ1/XZp</h2>
 Thread on xda with the exploit and scripts to setup temporal magisk:<br/>
 <a href="https://xdaforums.com/t/xz1c-xz1-xzp-temp-root-exploit-via-cve-2019-2215-including-magisk-setup-locked-bl.4046641/">[XZ1c/XZ1/XZp] temp root exploit via CVE-2019-2215 including magisk setup [Locked BL]</a><br/>
 <br/>
@@ -69,7 +96,7 @@ Thank you.</u></b>
 
 </details>
 <br/>
-<h2>Tools to Backup Trim Area of Xperia XZ1c/XZ1/XZp</h2>
+<h2>Tools to Backup Trim Area of Sony Xperia XZ1c/XZ1/XZp</h2>
 <a href="https://forum.xda-developers.com/xperia-xz1-compact/development/devonly-exploits-temp-root-to-backup-t3795510">thread on xda with the tools development</a>
 <br/>
 The tools include my implementation of temp root exploit leveraging CVE-2017-7533.<br/>
